@@ -144,10 +144,7 @@ if(isset($_POST['submit'])){
                               <input type="text" name="name" placeholder="Enter product name" class="form-control" required value="<?php echo $name?>">
                            </div>
 
-                           <div class="form-group">
-                              <label for="categories" class=" form-control-label">MRP</label>
-                              <input type="text" name="mrp" placeholder="Enter product mrp" class="form-control" required value="<?php echo $mrp?>">
-                           </div>
+                           
 
                            <div class="form-group">
                               <label for="categories" class=" form-control-label">Price</label>

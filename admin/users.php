@@ -43,7 +43,7 @@ $res=mysqli_query($con,$sql);
                                        <td class="serial"><?php echo $i?></td>
                                        <td><?php echo $row['id']?></td>
                                        <td><?php echo $row['name']?></td>
-                                       <td><?php echo $row['email']?></td>
+                                       <td style="text-transform:lowercase;" ><?php echo $row['email']?></td>
                                        <td><?php echo $row['mobile']?></td>
                                        <td><?php echo $row['added_on']?></td>
                                        <td>
