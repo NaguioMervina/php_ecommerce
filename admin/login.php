@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
                             </div>
                             <div class="row px-3 mb-4">
                             </div>
-                            <form method="post">
+                            <form  method="post">
                                 <div class="form-group row px-3"> <label class="mb-1">
                                 <h6 class="mb-0 text-sm">Username</h6>
                             </label> <input class="mb-4" type="text" name="username" class="form-control" placeholder="Enter a valid email address" required> </div>
