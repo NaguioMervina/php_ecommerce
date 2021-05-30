@@ -1,4 +1,6 @@
-<?php require('top.php') ?>
+<?php 
+require('top.php');
+?>
 <ul id="adaptive" class="cs-hidden">
                 <li class="item-a">
                     
@@ -108,19 +110,17 @@
 							foreach($get_product as $list){
 							?>
                                     <div class="product-box">
-                                       
                                         <div class="product-img">
-                                            <a href="#"class="add-cart">
+                                            <a class="add-cart fr__btn" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id']?>','add')">
                                                 <i class='bx bxs-cart'></i>
                                             </a>
-                                        <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" />
+                                      <a href="product.php?id=<?php echo $list['id']?>"> <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" /> </a>
                                         </div>
                                         <div class="product-details">
                                             <a href="#" class="p-name"><?php echo $list['name']?></a>
-                                            <span class="p-price"><?php echo $list['price']?></span>
+                                            <span class="p-price">₱<?php echo $list['price']?></span>
                                         </div>
                                     </div>
-                                    
                                     <?php } ?>
                                 </div>
                                

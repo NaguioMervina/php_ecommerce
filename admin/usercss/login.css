@@ -108,11 +108,6 @@ a {
     background-color: #1A237E
 }
 
-.field_error {
-    color: red;
-    margin-top: 15px;
-}
-
 @media screen and (max-width: 991px) {
     .logo {
         margin-left: 0px
@@ -127,8 +122,5 @@ a {
     .card2 {
         border-top: 1px solid #EEEEEE !important;
         margin: 0px 15px
-    }
-    .field_error {
-        color: red;
     }
 }

@@ -1,12 +1,17 @@
 <?php
 require('connection.inc.php');
 require('functions.inc.php');
+require('add_to_cart.inc.php');
 $cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
 $cat_arr=array();
 while($row=mysqli_fetch_assoc($cat_res)){
 	$cat_arr[]=$row;	
 }
+
+$obj=new add_to_cart();
+$totalProduct=$obj->totalProduct();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +45,7 @@ while($row=mysqli_fetch_assoc($cat_res)){
 
 
             <ul class="menu">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="#">Poster</a>
                     <span class="sale-lable">Sale</span>
 
@@ -51,7 +56,10 @@ while($row=mysqli_fetch_assoc($cat_res)){
                 <li><a href="#">Tshirt</a>
                     <span class="sale-lable">Sale</span>
                 </li>
-                <li><a href="#">Shop</a></li>
+                <li>
+                
+										
+                </li>
             </ul>
 
             <div class="right-menu">
@@ -60,10 +68,15 @@ while($row=mysqli_fetch_assoc($cat_res)){
                 </a>
                 <a href="javascript:void(0);" class="user">
                     <i class='bx bxs-user'></i>
+                    <?php if(isset($_SESSION['USER_LOGIN'])){
+											echo '<a href="logout.php">Logout</a>';
+										}else
+										?>
+										
                 </a>
-                <a href="#">
+                <a href="cart.php">
                     <i class='bx bxs-cart' >
-                    <span class="num-cart">0</span>
+                    <span class="num-cart"><?php echo $totalProduct?></span>
                 </i>
                 </a>
             </div>
@@ -90,10 +103,10 @@ while($row=mysqli_fetch_assoc($cat_res)){
                     <strong>Log In</strong>
                     <img src="shop/images/logo/1.png" alt="">
 
-                    <form>
-                        <input type="email" placeholder="@gmail.com" name="email" required>
-                        <input type="password" placeholder="Password.." name="password" required>
-                        <input type="submit" value="Log In">
+                    <form id="login-form" method="post">
+                        <input type="email" id="login_email" placeholder="@gmail.com" name="email" required>
+                        <input type="password" id="login_password" placeholder="Password.." name="password" required>
+                        <button type="button" class="fv-btn" value="Log In" onclick="user_login()">Login</button>
                     </form>
                     <div class="form-btn">
                         <a href="#" class="forget">Forget Your Password?</a>
@@ -114,10 +127,11 @@ while($row=mysqli_fetch_assoc($cat_res)){
                     <img src="shop/images/logo/1.png" alt="">
 
                     <form>
-                        <input type="text" placeholder="Full Name" name="fullname" required>
-                        <input type="email" placeholder="@gmail.com" name="email" required>
-                        <input type="password" placeholder="Password.." name="password"required>
-                        <input type="submit" value="Sign up">
+                        <input type="text" placeholder="Full Name" id="name" name="fullname" required>
+                        <input type="email" placeholder="@gmail.com" id="email"  name="email" required>
+                        <input type="password" placeholder="Password.." id="password" name="password"required>
+                        <input type="password" placeholder="Confirm Password.." name="password"required>
+                        <button type="button" class="fv-btn" onclick="user_register()">Register</button>
                     </form>
                     <div class="form-btn">
                         <a href="javascript:void(0);" class="already-acc">Already Have Account?</a>

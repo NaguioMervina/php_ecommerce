@@ -33,6 +33,9 @@
                             </form>
                         </div>
                         </footer>
+                        
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="js/main.js"></script>
                         <script type="text/javascript">
     $(document).on('click','.search',function(){
         $('.search-bar').addClass('search-bar-active')
@@ -94,6 +97,9 @@
     })
 
     </script>
+    
+  
+
 </body>
 </html>
 
